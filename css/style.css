@@ -9,10 +9,23 @@ body {
     background-color: #fff;
 }
 
-.menuContainer{
-    position: absolute;
-    color: #fff;
+a {
+    text-decoration: none;
 }
+
+/* Menu Hamburguer */
+
+.menu{
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+}
+
+
+
+/* Hero Banner */
 
 .heroBanner{
     /* background-image: url(/images/bg-pattern-intro-desktop.svg); */
@@ -22,11 +35,36 @@ body {
     background-position: 24% 53%;
     background-size: auto;
     color: #fff;
-    padding-top: 10vh;
     border-radius: 0 0 0 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: top;
+    flex-direction: column;
+    padding-top: 7vh;
 }
 
-/* Menu principal */
+
+.wrapper{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cta{
+    padding-top: 10vh;
+}
+
+.callToAction{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+Menu principal
 
 .navContainer{
     background-color: #333;
@@ -82,7 +120,7 @@ body {
     display: none;
 } 
 
-/* Media Queries */
+/* Media Queries (aplica regras específicas para mobile) */
 
 @media screen and (max-width: 600px) {
     .topnav a {display: none;}
@@ -90,7 +128,9 @@ body {
       float: right;
       display: block;
     }
-    .navContainer{grid-template-columns: 50% 50%;}
+    .heroBanner{
+        min-height: 60vh;
+    }
 
 }
   
