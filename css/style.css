@@ -33,7 +33,7 @@ h1{
 }
 
 .menuLogo{
-    flex: 20%;    
+    flex: auto;    
 }
 
 /* .menuGrid{
@@ -48,10 +48,14 @@ h1{
     /* background-color: green; */
     flex: 50%;
     padding: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10vh;
 }
 
 .menuInstitucional a{
-    padding: 0 5vh 0 5vh;
+
 }
 
 .menuLogin{
@@ -61,10 +65,10 @@ h1{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 5vh;
 }
 
 .menuLogin a{
-    padding: 0 5vh 0 5vh;
 }
 
 
