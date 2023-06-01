@@ -17,6 +17,26 @@ h1{
     font-size: calc(2.2rem + 1vw);
 }
 
+/* Estilos gerais */
+
+.wrapper{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.desktop{
+    display: auto;
+}
+
+.mobile{
+    display: none;
+}
+
 /* Menu Hamburguer */
 
 .menuBar{
@@ -24,7 +44,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 90%;
+    width: 100%;
     padding: 20px;
 }
 
@@ -69,6 +89,7 @@ h1{
 }
 
 .menuLogin a{
+
 }
 
 
@@ -90,17 +111,12 @@ h1{
     padding-top: 7vh;
 }
 
-
-.wrapper{
-    width: 80%;
+.cta{
+    padding-top: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.cta{
-    padding-top: 10vh;
 }
 
 .callToAction{
@@ -113,33 +129,112 @@ h1{
 
 .ctaBtn{
     padding: 1vh;
-    border: 1px solid white;
-    border-radius: 5vh;
 }
 
 .ctaBtn a{
-    color: #fff;
+
 }
 
 .ctaLeft{
     background-color: #fff;
+    border: 1px solid white;
+    border-radius: 5vh;
     color: hsl(356, 100%, 66%);
+    padding: 1.2vh;
 }
 
-.ctaLeft a{
-    color: hsl(356, 100%, 66%);
+.ctaLeft:hover{
+    background-color: rgba(255, 255, 255, 0.233);
+    border: 1px solid rgba(0, 0, 255, 0);
+    color: #fff;
 }
 
 .ctaRight{
-    
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5vh;
+    color: #fff;
+    padding: 1.2vh;
 }
 
 
+.ctaRight:hover, a:hover{
+    background-color: #fff;
+    color: hsl(356, 100%, 66%);
+}
+
+/* Editor Section */
+
+.editor{
+    background-color: transparent;
+    margin-top: 17vh;
+    height: 90vh;
+}
+
+.editor img{
+    position: absolute;
+    size: 50%;
+    right: -27vh;
+    top: +88vh;
+    width: 50%;
+    height: auto;
+}
+
+.editorContent{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 40%;
+    align-self: self-start;
+    margin-top: 10vh;
+}
+
+.editorContent h3{
+    gap: 30px;
+}
+
+/* Infrastructure Section */
+
+.infrastructure{
+    background-image: linear-gradient(to right, hsl(237, 17%, 21%), hsl(237, 23%, 32%)) ;
+    padding: 10vh 0 10vh 0;
+    border-radius: 0 10vh 0 10vh;
+}
+.infrastructure img{
+    position: absolute;
+    width: 30%;
+    right: 110vh;
+    height: auto;
+}
+
+.infrastructureContent{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 40%;
+    align-self: self-end;
+    margin-top: 10vh;
+    color: #fff;
+}
 
 /* Media Queries (aplica regras específicas para mobile) */
 
 @media screen and (max-width: 600px) {
+    .menuBar{
+        display: none;
+    }
     .heroBanner{
         min-height: 60vh;
+    }
+    .desktop{
+        display: none;
+    }
+    .editor{
+        height: 70vh;
+    }
+    .editorContent{
+        width: 100%;
     }
 }
