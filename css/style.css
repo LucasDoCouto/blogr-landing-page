@@ -37,6 +37,10 @@ h1{
     display: none;
 }
 
+.hidden{
+    display: none;
+}
+
 /* Menu Hamburguer */
 
 .menuBar{
@@ -204,8 +208,11 @@ h1{
 .infrastructure img{
     position: absolute;
     width: 30%;
-    right: 110vh;
+    /* right: 110vh; */
+    top: -70px;
+    left: -50px;
     height: auto;
+    box-sizing: inherit;
 }
 
 .infrastructureContent{
