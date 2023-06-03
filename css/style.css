@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Overpass', sans-serif;
 }
 
 body {
     background-color: #fff;
+    font-family: 'Overpass', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: var(--body);
 }
 
 a {
@@ -14,8 +16,41 @@ a {
 }
 
 h1{
-    font-size: calc(2.2rem + 1vw);
+    font-size: var(--header-large);
+    font-family: 'Overpass', sans-serif;
+    color: var(--text-white);
 }
+
+/* Variáveis */
+
+:root {
+
+    /* Colors */
+    --text-white: hsl(0, 0%, 100%);
+    --text-footer: hsl(240, 2%, 79%);
+
+    /* Font Sizes */
+
+    --header-large: clamp(32px, 13.8461525px + 4.615385vw, 64px);
+    --header-medium: clamp(25px, 14.23px + 3.07vw, 45px);
+    --header-small: clamp(20px, 15.69px + 1.23vw, 28px);
+    --body-large: 20px;
+    --body: 1rem;
+
+    /* Thanks to utopia.fyi */
+
+    --space-3xs-2xs: clamp(0.31rem, calc(0.20rem + 0.54vw), 0.63rem);
+    --space-2xs-xs: clamp(0.56rem, calc(0.43rem + 0.65vw), 0.94rem);
+    --space-xs-s: clamp(0.88rem, calc(0.74rem + 0.65vw), 1.25rem);
+    --space-s-m: clamp(1.13rem, calc(0.86rem + 1.30vw), 1.88rem);
+    --space-m-l: clamp(1.69rem, calc(1.40rem + 1.41vw), 2.50rem);
+    --space-l-xl: clamp(2.25rem, calc(1.73rem + 2.61vw), 3.75rem);
+    --space-xl-2xl: clamp(3.38rem, calc(2.81rem + 2.83vw), 5.00rem);
+    --space-2xl-3xl: clamp(4.50rem, calc(3.46rem + 5.22vw), 7.50rem);
+    --space-3xl-4xl: clamp(6.75rem, calc(6.49rem + 1.30vw), 7.50rem);
+
+}
+
 
 /* Estilos gerais */
 
@@ -53,7 +88,7 @@ h1{
 }
 
 .menuBar a{
-    color: white;
+    color: var(--text-white);
 }
 
 .menuLogo{
@@ -97,72 +132,80 @@ h1{
 }
 
 
-/* Hero Banner */
+/* Header */
 
-.heroBanner{
+header{
     /* background-image: url(/images/bg-pattern-intro-desktop.svg); */
-    background-image: url(/images/bg-pattern-intro-desktop.svg), linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+    /* 
     min-height: 80vh;
     background-repeat: no-repeat;
     background-position: 24% 53%;
     background-size: auto;
-    color: #fff;
+    
     border-radius: 0 0 0 15vh;
     display: flex;
     align-items: center;
     justify-content: top;
-    flex-direction: column;
-    padding-top: 7vh;
+    flex-direction: column;*/
+    color: var(--text-white);
+    display: grid;
+    place-items: center;
+    gap: var(--space-l-xl);
+    text-align: center;
+    padding: var(--space-3xl-4xl) 2rem;
+    background-image: url(/images/bg-pattern-intro-desktop.svg), linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
 }
 
+
+/* Grids */
+
 .cta{
-    padding-top: 10vh;
+    /* padding-top: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column; */
+    display: grid;
+    place-items: center;
+    gap: var(--space-2xs-xs);
 }
 
-.callToAction{
+.cta-btn{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 10px;
+    gap: var(--space-2xs-xs);
 }
 
-.ctaBtn{
-    padding: 1vh;
-}
-
-.ctaBtn a{
-
-}
-
-.ctaLeft{
-    background-color: #fff;
+.btn-white{
+    background-color: var(--text-white);
     border: 1px solid white;
-    border-radius: 5vh;
+    border-radius: 2rem;
     color: hsl(356, 100%, 66%);
-    padding: 1.2vh;
+    padding: 0.6rem 1rem;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.ctaLeft:hover{
+.btn-white:hover{
     background-color: rgba(255, 255, 255, 0.233);
     border: 1px solid rgba(0, 0, 255, 0);
-    color: #fff;
+    color: var(--text-white);
 }
 
-.ctaRight{
+.btn-hollow{
     background-color: transparent;
     border: 1px solid white;
-    border-radius: 5vh;
-    color: #fff;
-    padding: 1.2vh;
+    border-radius: 2rem;
+    color: var(--text-white);
+    padding: 0.6rem 1rem;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 
-.ctaRight:hover, a:hover{
+.btn-hollow:hover, a:hover{
     background-color: #fff;
     color: hsl(356, 100%, 66%);
 }
