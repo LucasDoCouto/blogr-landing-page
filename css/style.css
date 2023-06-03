@@ -6,7 +6,6 @@
 
 body {
     background-color: #fff;
-    font-family: 'Overpass', sans-serif;
     font-family: 'Ubuntu', sans-serif;
     font-size: var(--body);
 }
@@ -21,6 +20,10 @@ h1{
     color: var(--text-white);
 }
 
+img, svg{
+    max-width: 100%;
+}
+
 /* Variáveis */
 
 :root {
@@ -28,6 +31,8 @@ h1{
     /* Colors */
     --text-white: hsl(0, 0%, 100%);
     --text-footer: hsl(240, 2%, 79%);
+    --text-heading: hsl(208, 49%, 24%);
+    --text-body: hsl(207, 13%, 34%);
 
     /* Font Sizes */
 
@@ -55,13 +60,14 @@ h1{
 /* Estilos gerais */
 
 .wrapper{
-    width: 90%;
+    /* width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column; */
+    padding: var(--space-s-m);
 }
 
 .desktop{
@@ -70,6 +76,8 @@ h1{
 
 .mobile{
     display: none;
+    width: 100%;
+    height: auto;
 }
 
 .hidden{
@@ -104,7 +112,6 @@ h1{
 } */
 
 .menuInstitucional{
-    /* background-color: green; */
     flex: 50%;
     padding: 1vh;
     display: flex;
@@ -118,7 +125,6 @@ h1{
 }
 
 .menuLogin{
-    /* background-color: blue; */
     flex: 30%;
     padding: 1vh;
     display: flex;
@@ -135,14 +141,10 @@ h1{
 /* Header */
 
 header{
-    /* background-image: url(/images/bg-pattern-intro-desktop.svg); */
+    /* TODO: Remove old styles */
     /* 
     min-height: 80vh;
-    background-repeat: no-repeat;
-    background-position: 24% 53%;
-    background-size: auto;
     
-    border-radius: 0 0 0 15vh;
     display: flex;
     align-items: center;
     justify-content: top;
@@ -153,13 +155,23 @@ header{
     gap: var(--space-l-xl);
     text-align: center;
     padding: var(--space-3xl-4xl) 2rem;
+    background-repeat: no-repeat;
+    background-position: 24% 53%;
+    background-size: auto;
     background-image: url(/images/bg-pattern-intro-desktop.svg), linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+    border-radius: 0 0 0 var(--space-xl-2xl);
 }
 
+header p{
+    color: var(--text-white);
+    font-family: 'Overpass', sans-serif;
+    font-weight: 300;
+}
 
 /* Grids */
 
-.cta{
+.grid-small{
+    /* TODO: Remove old styles */
     /* padding-top: 10vh;
     display: flex;
     align-items: center;
@@ -180,18 +192,20 @@ header{
 
 .btn-white{
     background-color: var(--text-white);
-    border: 1px solid white;
+    border: 1px solid rgba(0, 0, 255, 0);
     border-radius: 2rem;
     color: hsl(356, 100%, 66%);
     padding: 0.6rem 1rem;
     font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
+    transition: .5s ease-in-out;
 }
 
 .btn-white:hover{
     background-color: rgba(255, 255, 255, 0.233);
     border: 1px solid rgba(0, 0, 255, 0);
     color: var(--text-white);
+    transition: .5s ease-in-out;
 }
 
 .btn-hollow{
@@ -202,15 +216,61 @@ header{
     padding: 0.6rem 1rem;
     font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
+    transition: .5s ease-in-out;
 }
 
 
 .btn-hollow:hover, a:hover{
     background-color: #fff;
     color: hsl(356, 100%, 66%);
+    transition: .5s ease-in-out;
 }
 
-/* Editor Section */
+/* Future Editor Section */
+
+.future-editor{
+    display: grid;
+    place-items: center;
+    gap: var(--space-2xs-xs);
+    text-align: center;
+    color: var(--text-body);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 100;
+    padding: var(--space-3xl-4xl) 0;
+}
+
+.future-editor h2{
+    color: var(--text-heading);
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+}
+
+.future-editor h3{
+    padding: var(--space-xs-s) var(--space-m-l);
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+    font-size: var(--header-medium);
+    color: var(--text-heading);
+}
+
+.future-mobile-svg{
+    padding: 0;
+}
+
+.editor-content{
+    /* TODO: Remove old styles */
+    /* display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 40%;
+    align-self: self-start;
+    margin-top: 10vh; */
+    display: grid;
+    place-items: center;
+    gap: var(--space-xl-2xl);
+    text-align: center;
+}
 
 .editor{
     background-color: transparent;
@@ -225,20 +285,6 @@ header{
     top: +88vh;
     width: 50%;
     height: auto;
-}
-
-.editorContent{
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 40%;
-    align-self: self-start;
-    margin-top: 10vh;
-}
-
-.editorContent h3{
-    gap: 30px;
 }
 
 /* Infrastructure Section */
@@ -280,6 +326,9 @@ header{
     }
     .desktop{
         display: none;
+    }
+    .mobile{
+        display:flex;
     }
     .editor{
         height: 70vh;
