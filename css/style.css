@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: var(--text-white);
     font-family: 'Ubuntu', sans-serif;
     font-size: var(--body);
 }
@@ -220,8 +220,8 @@ header p{
 }
 
 
-.btn-hollow:hover, a:hover{
-    background-color: #fff;
+.btn-hollow:hover{
+    background-color: var(--text-white);
     color: hsl(356, 100%, 66%);
     transition: .5s ease-in-out;
 }
@@ -290,10 +290,32 @@ header p{
 /* Infrastructure Section */
 
 .infrastructure{
-    background-image: linear-gradient(to right, hsl(237, 17%, 21%), hsl(237, 23%, 32%)) ;
-    padding: 10vh 0 10vh 0;
-    border-radius: 0 10vh 0 10vh;
+    /* padding: 10vh 0 10vh 0;
+     */
+    display: grid;
+    gap: var(--space-xl-2xl);
+    text-align: center;
+    color: var(--bkg);
+    padding-bottom: var(--space-2xl-3xl);
+    border-bottom-left-radius: 6rem;
+    border-top-right-radius: 6rem;
+    position: relative;
 }
+
+.infrastructure p{
+    color: var(--text-white);
+    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Overpass', sans-serif;
+}
+
+.infrastructure h2{
+    color: var(--text-white);
+    padding-bottom: var(--space-s-m);
+    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Overpass', sans-serif;
+    font-weight: 600;
+}
+
 .infrastructure img{
     /* position: absolute;
     width: 30%;
@@ -311,8 +333,120 @@ header p{
     width: 40%;
     align-self: self-end;
     margin-top: 10vh;
-    color: #fff;
+    color: var(--text-white);
 }
+
+.infra-background{
+    background-image: url(/images/bg-pattern-circles.svg), linear-gradient(to right, hsl(237, 17%, 21%), hsl(237, 23%, 32%)) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    position: absolute;
+    inset: var(--space-3xl-4xl) 0 0; /* adiciona um espaço acima. TODO: estudar mais */
+    z-index: -1;
+    border-radius: 0 10vh 0 10vh;
+}
+
+.infra-background img{
+    display: none;
+}
+
+/* Features */
+
+/* Future Editor Section */
+
+.features-section{
+    display: grid;
+    place-items: center;
+    gap: var(--space-2xs-xs);
+    text-align: center;
+    color: var(--text-body);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 100;
+    padding: var(--space-3xl-4xl) 0;
+}
+
+.features-section h2{
+    color: var(--text-heading);
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+}
+
+.features-section h3{
+    padding: var(--space-xs-s) var(--space-m-l);
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+    font-size: var(--header-medium);
+    color: var(--text-heading);
+}
+
+.future-mobile-svg{
+    padding: 0;
+}
+
+
+.features-content{
+    /* TODO: Remove old styles */
+    /* display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 40%;
+    align-self: self-start;
+    margin-top: 10vh; */
+    display: grid;
+    place-items: center;
+    gap: var(--space-xl-2xl);
+    text-align: center;
+}
+
+/* Footer */
+
+footer{
+    background-color: hsl(240, 10%, 16%);
+    border-top-right-radius: 10vh;
+}
+
+.footer-container{
+    margin-inline: 2rem;
+    padding: var(--space-3xl-4xl) 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    /* gap: var(--space-l-xl); */
+    color: var(--text-footer);
+}
+
+.footer-container a, a:hover{
+    text-decoration: none;
+}
+
+.footer-container img{
+    max-width: 30%;
+    margin: var(--space-l-xl);
+}
+
+.footer-nav{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs-s);
+}
+
+.section-nav{
+    color: var(--text-white);
+    padding: var(--space-s-m) 0;
+    font-weight: bold;
+}
+
+.subsection-nav{
+    color: var(--text-footer);
+    padding: 0.05vh;
+    font-weight: 100;
+}
+
 
 /* Media Queries (aplica regras específicas para mobile) */
 
@@ -334,5 +468,8 @@ header p{
     }
     .editorContent{
         width: 100%;
+    }
+    .infra-background img{
+        top: -90vh;
     }
 }
