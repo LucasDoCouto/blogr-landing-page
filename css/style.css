@@ -37,7 +37,7 @@ img, svg{
     /* Font Sizes */
 
     --header-large: clamp(32px, 13.8461525px + 4.615385vw, 64px);
-    --header-medium: clamp(25px, 14.23px + 3.07vw, 45px);
+    --header-medium: clamp(25px, 14.23px + 3.07vw, 29px);
     --header-small: clamp(20px, 15.69px + 1.23vw, 28px);
     --body-large: 20px;
     --body: 1rem;
@@ -67,11 +67,13 @@ img, svg{
     align-items: center;
     justify-content: center;
     flex-direction: column; */
-    padding: var(--space-s-m);
+    margin: var(--space-s-m);
 }
 
 .desktop{
     display: auto;
+    overflow: hidden;
+    position: relative
 }
 
 .mobile{
@@ -120,9 +122,6 @@ img, svg{
     gap: 10vh;
 }
 
-.menuInstitucional a{
-
-}
 
 .menuLogin{
     flex: 30%;
@@ -133,10 +132,36 @@ img, svg{
     gap: 5vh;
 }
 
-.menuLogin a{
+/* Nav (Special thanks to Coding in Public) */
 
+.container{
+    margin-inline: var(--space-xs-s);    
 }
 
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    padding-block: var(--space-m-l);
+    inset-inline: var(--space-s-m);
+}
+
+.menu-links{
+    display: none;
+}
+
+.hamburguer-menu{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+[aria-label="Homepage"]{
+    display: grid; /* TODO:  useful to center image with text, study more */
+    place-items: center;
+}
 
 /* Header */
 
@@ -160,12 +185,23 @@ header{
     background-size: auto;
     background-image: url(/images/bg-pattern-intro-desktop.svg), linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
     border-radius: 0 0 0 var(--space-xl-2xl);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
 
 header p{
     color: var(--text-white);
     font-family: 'Overpass', sans-serif;
     font-weight: 300;
+}
+
+header .background{
+    position: absolute;
+    z-index: -1;
+    scale: 270%;
+    top: 80px;
+    right: -95px;
 }
 
 /* Grids */
@@ -237,6 +273,8 @@ header p{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 100;
     padding: var(--space-3xl-4xl) 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .future-editor h2{
@@ -257,6 +295,15 @@ header p{
     padding: 0;
 }
 
+.future-desktop-svg{
+    padding: 0;
+    position: absolute;
+    scale: 80%;
+    right: -53vh;
+    top: 10vh;
+    z-index: -4;
+}
+
 .editor-content{
     /* TODO: Remove old styles */
     /* display: flex;
@@ -270,6 +317,8 @@ header p{
     place-items: center;
     gap: var(--space-xl-2xl);
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .editor{
@@ -300,6 +349,7 @@ header p{
     border-bottom-left-radius: 6rem;
     border-top-right-radius: 6rem;
     position: relative;
+    overflow: hidden;
 }
 
 .infrastructure p{
@@ -337,18 +387,24 @@ header p{
 }
 
 .infra-background{
-    background-image: url(/images/bg-pattern-circles.svg), linear-gradient(to right, hsl(237, 17%, 21%), hsl(237, 23%, 32%)) ;
+    background-image: linear-gradient(to right, hsl(237, 17%, 21%), hsl(237, 23%, 32%)) ;
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
     position: absolute;
     inset: var(--space-3xl-4xl) 0 0; /* adiciona um espaço acima. TODO: estudar mais */
-    z-index: -1;
+    z-index: -2;
     border-radius: 0 10vh 0 10vh;
+    overflow: hidden;
 }
 
 .infra-background img{
-    display: none;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right:0;
+    top: -90px;
+    scale: 150%;
 }
 
 /* Features */
@@ -372,7 +428,7 @@ header p{
     font-weight: bold;
 }
 
-.features-section h3{
+.features-section > h3{
     padding: var(--space-xs-s) var(--space-m-l);
     font-family: 'Overpass', sans-serif;
     font-weight: bold;
@@ -448,7 +504,7 @@ footer{
 }
 
 
-/* Media Queries (aplica regras específicas para mobile) */
+/* Media Queries (aplica regras específicas para mobile e desktop) */
 
 @media screen and (max-width: 600px) {
     .menuBar{
@@ -457,11 +513,15 @@ footer{
     .heroBanner{
         min-height: 60vh;
     }
+    header{
+        background-image: linear-gradient(to bottom, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+        z-index: 1;
+    }
     .desktop{
         display: none;
     }
     .mobile{
-        display:flex;
+        display: flex;
     }
     .editor{
         height: 70vh;
@@ -470,6 +530,46 @@ footer{
         width: 100%;
     }
     .infra-background img{
-        top: -90vh;
+
     }
+}
+
+@media screen and (min-width: 601px){
+    .content-desktop{
+        /* max-width: 50%;
+        margin: 0;
+        padding: 0; */
+    }
+    .grid-small{
+        /* place-items: start;
+        text-align: start; */
+        /* grid: 100% / auto auto; */
+    }
+
+    .desktop-grid{
+        display: grid;
+        /* grid: 100% / auto auto; */
+        grid-template-columns: 40% auto;
+        grid-template-rows: auto auto;
+        place-items: start;
+        text-align: start;
+        gap: var(--space-m-l);
+    }
+
+    .future-editor h3{
+        padding: var(--space-m-l) 0;
+    }
+
+    .item1{
+        grid-area: 1 / 1;
+    }
+
+    .item2{
+        grid-area: 2 / 1;
+    }
+
+    .wrapper{
+        margin: var(--space-l-xl);
+    }
+
 }
