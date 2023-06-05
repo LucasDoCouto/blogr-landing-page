@@ -146,16 +146,52 @@ img, svg{
     z-index: 3;
     padding-block: var(--space-m-l);
     inset-inline: var(--space-s-m);
+    gap: var(--space-m-l);
 }
 
 .menu-links{
     display: none;
 }
 
+[role="none"]{
+    display: grid;
+    place-items: center;
+}
+
+.menu-main-link{
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+@media screen and (min-width: 601px){
+    .menu-links{
+        display: flex;
+        list-style-type: none;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--space-xs-s);
+    }
+
+    .menu-submenu{
+        display: none;
+    }
+
+    .menu-last{
+        margin-right: auto;
+    }
+
+}
+
 .hamburguer-menu{
     background: none;
     border: none;
     cursor: pointer;
+}
+
+@media screen and (min-width: 601px){
+    .hamburguer-menu{
+        display: none;
+    }
 }
 
 [aria-label="Homepage"]{
@@ -349,7 +385,6 @@ header .background{
     border-bottom-left-radius: 6rem;
     border-top-right-radius: 6rem;
     position: relative;
-    overflow: hidden;
 }
 
 .infrastructure p{
@@ -420,6 +455,8 @@ header .background{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 100;
     padding: var(--space-3xl-4xl) 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .features-section h2{
@@ -454,6 +491,15 @@ header .background{
     place-items: center;
     gap: var(--space-xl-2xl);
     text-align: center;
+}
+
+.feature-desktop-svg{
+    padding: 0;
+    position: absolute;
+    scale: 75%;
+    left: -53vh;
+    top: -10vh;
+    z-index: -4;
 }
 
 /* Footer */
@@ -546,7 +592,7 @@ footer{
         /* grid: 100% / auto auto; */
     }
 
-    .desktop-grid{
+    .desktop-grid-left{
         display: grid;
         /* grid: 100% / auto auto; */
         grid-template-columns: 40% auto;
@@ -554,6 +600,43 @@ footer{
         place-items: start;
         text-align: start;
         gap: var(--space-m-l);
+    }
+
+    .desktop-grid-right{
+        display: grid;
+        /* grid: 100% / auto auto; */
+        grid-template-columns: auto 40%;
+        grid-template-rows: auto auto;
+        place-items: start;
+        text-align: start;
+        gap: var(--space-m-l);
+    }
+
+    .infra-background{
+        /* inset: var(--space-s-m) 0 0; adiciona um espaço acima. TODO: estudar mais */
+        inset: 0;
+        margin: 0;
+        padding: 0;
+        max-height: 45vh;
+    }
+
+    .desktop-grid-phone{
+        display: grid;
+        /* grid: 100% / auto auto; */
+        grid-template-columns: auto 50%;
+        grid-template-rows: auto auto;
+        place-items: start;
+        text-align: start;
+        gap: var(--space-m-l);
+    }
+
+    .desktop-phone{
+        padding: 0;
+        position: absolute;
+        scale: 78%;
+        left: 0;
+        top: -18vh;
+        z-index: 1;
     }
 
     .future-editor h3{
@@ -568,8 +651,33 @@ footer{
         grid-area: 2 / 1;
     }
 
+    .item3{
+        grid-area: 1 / 2;
+    }
+
+    .item4{
+        grid-area: 2 / 2;
+    }
+
     .wrapper{
         margin: var(--space-l-xl);
+    }
+
+    .footer-container{
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: start;
+    }
+
+    .footer-nav{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .footer-nav > div{
+        display: grid;
+        grid-template-columns: auto;
+        gap: var(--space-xs-s);
     }
 
 }
