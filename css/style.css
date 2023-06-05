@@ -86,51 +86,6 @@ img, svg{
     display: none;
 }
 
-/* Menu Hamburguer */
-
-.menuBar{
-    /* background-color: #333; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 20px;
-}
-
-.menuBar a{
-    color: var(--text-white);
-}
-
-.menuLogo{
-    flex: auto;    
-}
-
-/* .menuGrid{
-    background-color: black;
-    min-width: 85%;
-    display: grid;
-    grid-template-columns: 20% 30% 50%;
-    padding: 20px;
-} */
-
-.menuInstitucional{
-    flex: 50%;
-    padding: 1vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10vh;
-}
-
-
-.menuLogin{
-    flex: 30%;
-    padding: 1vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 5vh;
-}
 
 /* Nav (Special thanks to Coding in Public) */
 
@@ -151,6 +106,17 @@ img, svg{
 
 .menu-links{
     display: none;
+    position: absolute;
+    background-color: var(--text-white);
+    top: 7rem;
+    align-self: center;
+}
+
+.menu-submenu{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 [role="none"]{
@@ -166,10 +132,18 @@ img, svg{
 @media screen and (min-width: 601px){
     .menu-links{
         display: flex;
+        position: static;
+        background-color: transparent;
         list-style-type: none;
         justify-content: space-between;
         width: 100%;
         gap: var(--space-xs-s);
+    }
+
+
+    .menu-main-link::after{
+        content: url(/images/icon-arrow-light.svg);
+        margin: .5rem;
     }
 
     .menu-submenu{
@@ -183,9 +157,51 @@ img, svg{
 }
 
 .hamburguer-menu{
-    background: none;
     border: none;
     cursor: pointer;
+    background-image: url(/images/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+
+}
+
+.hamburguer-menu[aria-expanded="true"] {
+    background-image: url(/images/icon-close.svg);
+}
+
+.hamburguer-menu[aria-expanded="true"] + .menu-links{
+    display: grid;
+    place-items: center;
+    align-items: center;
+    grid-template-columns: auto;
+    width: 90%;
+    border-radius: 1rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.hamburguer-menu[aria-expanded="true"] + .menu-links a{
+    color: black;
+    margin: .2rem;
+}
+
+.hamburguer-menu[aria-expanded="true"] + .menu-wrapper{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 1000px;
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+    z-index: -4;
+}
+
+.hamburguer-menu[aria-expanded="true"] + .menu-submenu li{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
 }
 
 @media screen and (min-width: 601px){
